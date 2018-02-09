@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Realms;
 using Xamarin.Forms;
 
 namespace MyBooksApp
@@ -12,6 +12,7 @@ namespace MyBooksApp
         public App()
         {
             InitializeComponent();
+            
 
             MainPage = new MyBooksApp.MainPage();
         }

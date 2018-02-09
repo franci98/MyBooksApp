@@ -10,10 +10,25 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to your library!"
-                HorizontalOptions="Center" />
+                    HorizontalOptions="Center" />
             <Entry Placeholder="Enter a book, you want to add"
+                   x:Name="bookName"
                    Text="{Binding BookName}" />
-            <Picker ItemsSource="{Binding Ratings}" />
+            <Picker x:Name="ratingPicker"
+                    ItemsSource="{Binding Ratings}" 
+                    ItemDisplayBinding="{Binding Description}"
+                    SelectedItem="{Binding SelectedRating}"/>
+            <Button x:Name="addBookNameButton"
+                    Command="{Binding AddBookCommand}" 
+                    Text="Save Book"
+                    />
+            <Label HorizontalOptions="Center"
+                   Text="My Books"
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
+            <ListView ItemsSource="{Binding MyBooks}" 
+                      BackgroundColor="Magenta">
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
