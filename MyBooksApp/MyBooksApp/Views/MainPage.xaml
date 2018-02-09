@@ -28,6 +28,15 @@
                    FontAttributes="Bold" />
             <ListView ItemsSource="{Binding MyBooks}" 
                       BackgroundColor="Magenta">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding DisplayName}" FontAttributes="Bold" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>

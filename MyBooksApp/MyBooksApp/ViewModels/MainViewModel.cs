@@ -17,15 +17,26 @@ namespace MyBooksApp.ViewModels
         private Rating _selectedRating;
         private List<Rating> _ratings;
         private String _bookName;
+        private List<Book> _myBooks;
 
         #endregion
 
         #region Properties
 
+        public List<Book> MyBooks
+        {
+            get { return _myBooks; }
+            set {
+                _myBooks = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("MyBooks"));
+            }
+        }
+        
         public String BookName
         {
             get { return _bookName; }
             set {
+                
                 _bookName = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("BookName"));
             }
@@ -45,7 +56,7 @@ namespace MyBooksApp.ViewModels
             get { return _selectedRating; }
             set {
                 _selectedRating = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("SelectedRating"));
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedRating")); 
             }
         }
 
@@ -71,7 +82,7 @@ namespace MyBooksApp.ViewModels
                 });
                 _ratings = _realmObject.All<Rating>().ToList();
             }
-
+            _myBooks = _realmObject.All<Book>().ToList();
         }
 
         #endregion
@@ -81,11 +92,16 @@ namespace MyBooksApp.ViewModels
 
         private void AddBook()
         {
-            _realmObject.Write(() =>
+            if (SelectedRating != null && BookName.Length > 0)
             {
-                _realmObject.Add<Book>(new Book() { DisplayName = _bookName, BookRating = _selectedRating });
-            });
-            
+                _realmObject.Write(() =>
+                {
+                    _realmObject.Add<Book>(new Book() { DisplayName = _bookName, BookRating = _selectedRating });
+                });
+                MyBooks = _realmObject.All<Book>().ToList();
+                SelectedRating = null;
+                BookName = null;
+            }
         }
 
         #endregion
