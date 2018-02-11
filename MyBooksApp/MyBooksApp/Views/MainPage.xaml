@@ -20,19 +20,20 @@
                     SelectedItem="{Binding SelectedRating}"/>
             <Button x:Name="addBookNameButton"
                     Command="{Binding AddBookCommand}" 
-                    Text="Save Book"
-                    />
+                    Text="Save Book"/>
             <Label HorizontalOptions="Center"
                    Text="My Books"
                    FontSize="Medium"
                    FontAttributes="Bold" />
             <ListView ItemsSource="{Binding MyBooks}" 
-                      BackgroundColor="Magenta">
+                      BackgroundColor="LightBlue"
+                      ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
-                                <Label Text="{Binding DisplayName}" FontAttributes="Bold" />
+                                <Label Text="{Binding DisplayName}" FontAttributes="Bold" LineBreakMode="WordWrap"/>
+                                <Label Text="{Binding BookRating.Description}" FontAttributes="Bold" LineBreakMode="WordWrap" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

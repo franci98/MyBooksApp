@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using MyBooksApp.ViewModels;
+using MyBooksApp.Models;
 
 namespace MyBooksApp
 {
@@ -12,6 +14,14 @@ namespace MyBooksApp
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var vm = BindingContext as MainViewModel;
+            Book SelectedBook = e.Item as Book;
+
+            vm.BookDetailsCommand.Execute(SelectedBook);
         }
     }
 }

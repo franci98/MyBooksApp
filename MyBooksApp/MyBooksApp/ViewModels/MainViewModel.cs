@@ -19,6 +19,8 @@ namespace MyBooksApp.ViewModels
         private String _bookName;
         private List<Book> _myBooks;
 
+        //private Book _selectedBook;
+        
         #endregion
 
         #region Properties
@@ -54,14 +56,29 @@ namespace MyBooksApp.ViewModels
         public Rating SelectedRating
         {
             get { return _selectedRating; }
-            set {
+            set
+            {
                 _selectedRating = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("SelectedRating")); 
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedRating"));
             }
         }
+        //public Book SelectedBook
+        //{
+        //    get { return _selectedBook; }
+        //    set
+        //    {
+        //        _selectedBook = value;
+        //        PropertyChanged(this, new PropertyChangedEventArgs("SelectedBook"));
+        //    }
+        //}
+
 
         public Command AddBookCommand {
             get { return new Command(AddBook); }
+        }
+        public Command<Book> BookDetailsCommand
+        {
+            get { return new Command<Book>(BookDetails); }
         }
 
         #endregion
@@ -102,6 +119,10 @@ namespace MyBooksApp.ViewModels
                 SelectedRating = null;
                 BookName = null;
             }
+        }
+        private void BookDetails(Book SelectedBook)
+        {
+            
         }
 
         #endregion
