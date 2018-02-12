@@ -4,7 +4,9 @@
              x:Class="MyBooksApp.Views.BookDetailsPage">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+          <Label Text="Book Title:" />
+            <Label Text="{Binding SelectedBook.DisplayName}" FontSize="Large" />
+            <Label Text="{Binding SelectedBook.BookRating.Description}" FontSize="Medium" />
+        </StackLayout>
   </ContentView.Content>
 </ContentPage>
