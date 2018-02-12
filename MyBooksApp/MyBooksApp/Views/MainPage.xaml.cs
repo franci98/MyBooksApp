@@ -33,5 +33,13 @@ namespace MyBooksApp
 
             vm.BookDetailsCommand.Execute(SelectedBook);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var vm = BindingContext as MainViewModel;
+            vm.PopulateMyBooks();
+        }
     }
 }

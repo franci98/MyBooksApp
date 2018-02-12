@@ -11,10 +11,10 @@ namespace MyBooksApp.Views
 {
 	public partial class BookDetailsPage : ContentPage
 	{
-		public BookDetailsPage (Models.Book selectedBook)
+		public BookDetailsPage (Models.Book selectedBook, INavigation navigation)
 		{
             InitializeComponent();
-            BindingContext = new ViewModels.BookDetailsViewModel(selectedBook);
+            BindingContext = new ViewModels.BookDetailsViewModel(selectedBook, navigation);
 		}
 	}
 }

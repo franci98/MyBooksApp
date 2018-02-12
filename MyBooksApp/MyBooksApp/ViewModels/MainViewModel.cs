@@ -104,6 +104,8 @@ namespace MyBooksApp.ViewModels
             _myBooks = _realmObject.All<Book>().ToList();
         }
 
+        
+
         #endregion
 
         #region Methods
@@ -124,9 +126,14 @@ namespace MyBooksApp.ViewModels
         }
         private void BookDetails(Book selectedBook)
         {
-            _navigation.PushAsync(new Views.BookDetailsPage(selectedBook));
+           _navigation.PushAsync(new Views.BookDetailsPage(selectedBook, _navigation));
+
         }
 
+        public void PopulateMyBooks()
+        {
+            MyBooks = _realmObject.All<Book>().ToList();
+        }
         #endregion
 
     }

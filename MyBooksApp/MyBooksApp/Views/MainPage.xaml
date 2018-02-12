@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MyBooksApp"
              x:Class="MyBooksApp.MainPage">
-    <ContentPage.Content>
+       <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to your library!"
                     HorizontalOptions="Center" />
@@ -28,8 +28,10 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
-                                <Label Text="{Binding DisplayName}" FontAttributes="Bold" LineBreakMode="WordWrap"/>
-                                <Label Text="{Binding BookRating.Description}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                                <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                                    <Label Text="{Binding DisplayName}" FontAttributes="Bold" />
+                                    <Label Text="{Binding BookRating.Description}" FontAttributes="Bold" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
