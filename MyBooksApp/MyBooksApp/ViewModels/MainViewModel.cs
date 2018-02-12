@@ -18,7 +18,7 @@ namespace MyBooksApp.ViewModels
         private List<Rating> _ratings;
         private String _bookName;
         private List<Book> _myBooks;
-
+        private INavigation _navigation;
         //private Book _selectedBook;
         
         #endregion
@@ -85,8 +85,10 @@ namespace MyBooksApp.ViewModels
 
         #region Constructors
 
-        public MainViewModel()
+        public MainViewModel(INavigation navigation)
         {
+            _navigation = navigation;
+
             _realmObject = Realm.GetInstance();
             _ratings = _realmObject.All<Rating>().ToList();
 
@@ -120,9 +122,9 @@ namespace MyBooksApp.ViewModels
                 BookName = null;
             }
         }
-        private void BookDetails(Book SelectedBook)
+        private void BookDetails(Book selectedBook)
         {
-            
+            _navigation.PushAsync(new Views.BookDetailsPage(selectedBook));
         }
 
         #endregion

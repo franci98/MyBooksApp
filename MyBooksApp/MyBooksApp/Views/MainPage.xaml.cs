@@ -13,7 +13,17 @@ namespace MyBooksApp
     {
         public MainPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
+            BindingContext = new MainViewModel(this.Navigation);
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

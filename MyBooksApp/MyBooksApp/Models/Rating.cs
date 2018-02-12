@@ -7,7 +7,7 @@ using Realms;
 
 namespace MyBooksApp.Models
 {
-    class Rating : RealmObject
+    public class Rating : RealmObject
     {
         public int Number { get; set; }
         public String Description { get; set; }

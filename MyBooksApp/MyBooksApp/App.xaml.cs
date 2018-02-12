@@ -14,8 +14,13 @@ namespace MyBooksApp
             InitializeComponent();
             
 
-            MainPage = new MyBooksApp.MainPage();
+            MainPage = GetMainPage();
         }
+        public static Page GetMainPage()
+        {
+            return new NavigationPage(new MainPage());
+        }
+
 
         protected override void OnStart()
         {

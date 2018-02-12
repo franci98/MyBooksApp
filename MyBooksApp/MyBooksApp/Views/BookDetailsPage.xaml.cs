@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace MyBooksApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BookDetailsPage : ContentView
+	public partial class BookDetailsPage : ContentPage
 	{
-		public BookDetailsPage ()
+		public BookDetailsPage (Models.Book selectedBook)
 		{
-			InitializeComponent ();
+            InitializeComponent();
+            BindingContext = new ViewModels.BookDetailsViewModel(selectedBook);
 		}
 	}
 }
