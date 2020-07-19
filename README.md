@@ -18,4 +18,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 For support you are welcome to contact me on franciklavz@gmail.com 
 
 ## License
-[MIT License](https://github.com/franci98/MyBooksApp/LICENSE)
+[MIT License](https://github.com/franci98/MyBooksApp/blob/master/LICENSE)
